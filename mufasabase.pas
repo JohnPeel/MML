@@ -33,7 +33,7 @@ uses
 
 
 const
-    SimbaVersion = 980;
+    SimbaVersion = 990;
 
 procedure mDebugLn( s : string);overload;
 procedure mDebugLn( s : string; f : array of const);overload;
