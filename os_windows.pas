@@ -25,6 +25,7 @@
 unit os_windows;
 
 interface
+{$IFDEF WINDOWS}
 
   uses
     Classes, SysUtils, mufasatypes, windows, graphics, LCLType, LCLIntf, bitmaps, IOManager, WinKeyInput;
@@ -122,8 +123,10 @@ interface
         procedure NativeInit; override;
         procedure NativeFree; override;
     end;
-    
+
+{$ENDIF}
 implementation
+{$IFDEF WINDOWS}
 
   uses GraphType, interfacebase;
 
@@ -620,4 +623,5 @@ begin
   Result := true;
 end;
 
+{$ENDIF}
 end.

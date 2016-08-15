@@ -29,7 +29,8 @@ interface
 
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Variants;
+
 const
   DS = DirectorySeparator;
   MEOL = {$ifdef MSWINDOWS}#13+{$endif}#10;
@@ -80,7 +81,7 @@ type
   P2DHSLArray = ^T2DHSLArray;
   T2DHSLArray = array of array of THSL;
 
-  TRetData = record
+  TRetData = packed record
     Ptr : PRGB32;
     IncPtrWith : integer;
     RowLen : integer;
@@ -134,14 +135,14 @@ type
 
   { Mask Types }
   PMask = ^TMask;
-  TMask = record
+  TMask = packed record
     White, Black : TPointArray;
     WhiteHi,BlackHi : integer;
     W,H : integer;
   end;
 
   { File types }
-  TMufasaFile = record
+  TMufasaFile = packed record
     Path: String;
     FS: TFileStream;
     BytesRead, Mode: Integer;
@@ -154,11 +155,11 @@ type
     Then one could give DTM names, which would be easy for debugging.
   }
   PBox = ^TBox;
-  TBox = record
+  TBox = packed record
     x1, y1, x2, y2: Integer;
   end;
 
-  TSysProc = record
+  TSysProc = packed record
     Title: string;
     Handle: integer;
     Pid: integer;
@@ -171,7 +172,7 @@ type
 const
   TMDTMPointSize = 5*SizeOf(integer)+Sizeof(boolean);
 type
-  TMDTMPoint = record //TMufasaDTMPoint
+  TMDTMPoint = packed record //TMufasaDTMPoint
     x,y,c,t,asz : integer;
     bp : boolean;
   end;
@@ -182,7 +183,7 @@ type
 
   { Other DTM Types }
 
-  TSDTMPointDef = record
+  TSDTMPointDef = packed record
     x, y, Color, Tolerance, AreaSize, AreaShape: integer;
   end;
 
@@ -193,7 +194,7 @@ type
     SubPoints: TSDTMPointDefArray;
   end;
 
-  TWritelnProc = procedure(s: string);
+  TWritelnProc = procedure(s: shortstring); cdecl;
   {events}
   TOpenFileEvent = procedure(Sender : TObject;var Filename : string; var Continue : boolean) of object;
   TWriteFileEvent = TOpenFileEvent;
@@ -206,32 +207,32 @@ type
   TScriptStopEvent = TScriptExecuteEvent;
   TScriptOpenEvent = procedure(Sender: TObject; var Script : String) of object;
 
-  TOpenConnectionData = record
+  TOpenConnectionData = packed record
     Sender : TObject;
     URL : PString;
     Continue : PBoolean;
   end;
-  TOpenFileData = record
+  TOpenFileData = packed record
     Sender : TObject;
     FileName : PString;
     Continue : PBoolean;
   end;
   TWriteFileData = TOpenFileData;
 
-  TScriptStartData = record
+  TScriptStartData = packed record
     Sender : TObject;
     Script : PString;
     Continue : PBoolean;
   end;
 
-  TScriptOpenData = record
+  TScriptOpenData = packed record
     Sender : TObject;
     Script : PString;
   end;
 
 
 type
-  VirtualKeyInfo = record
+  VirtualKeyInfo = packed record
       Str : string;
       Key : byte;
   end;

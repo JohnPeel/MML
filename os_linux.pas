@@ -30,6 +30,7 @@ unit os_linux;
 }
 
 interface
+{$IFDEF UNIX}
 
   uses
     Classes, SysUtils, mufasatypes, mufasabase, IOManager,
@@ -70,6 +71,7 @@ interface
         procedure ActivateClient; override;
         procedure GetMousePosition(out x,y: integer); override;
         procedure MoveMouse(x,y: integer); override;
+        procedure ScrollMouse(x,y : integer; Lines : integer); override;
         procedure HoldMouse(x,y: integer; button: TClickType); override;
         procedure ReleaseMouse(x,y: integer; button: TClickType); override;
         function  IsMouseButtonHeld( button : TClickType) : boolean;override;
@@ -120,7 +122,7 @@ interface
 
         function GetProcesses: TSysProcArr; override;
         procedure SetTargetEx(Proc: TSysProc); override;
-      private
+      protected
         procedure NativeInit; override;
         procedure NativeFree; override;
       public
@@ -131,7 +133,9 @@ interface
 
   function MufasaXErrorHandler(para1:PDisplay; para2:PXErrorEvent):cint; cdecl;
 
+{$ENDIF}
 implementation
+{$IFDEF UNIX}
 
   uses GraphType, interfacebase, lcltype;
 
@@ -477,6 +481,11 @@ implementation
     XFlush(display);
   end;
 
+  procedure TWindow.ScrollMouse(x,y : integer; Lines : integer);
+  begin
+    raise Exception.CreateFmt('ScrollMouse isn''t implemented yet on Linux', []);
+  end;
+
   procedure TWindow.HoldMouse(x,y: integer; button: TClickType);
   var
     event: TXButtonPressedEvent;
@@ -611,6 +620,7 @@ implementation
 
   function TWindow.IsKeyHeld(key: integer): boolean;
   begin
+    Result := False;
     raise Exception.CreateFmt('IsKeyDown isn''t implemented yet on Linux', []);
   end;
 
@@ -668,6 +678,7 @@ implementation
 
   function TIOManager.GetProcesses: TSysProcArr;
   begin
+    SetLength(Result, 0);
     raise Exception.Create('GetProcesses: Not Implemented.');
   end;
 
@@ -676,4 +687,5 @@ implementation
     raise Exception.Create('SetTargetEx: Not Implemented.');
   end;
 
+{$ENDIF}
 end.

@@ -28,7 +28,7 @@ unit dtmutil;
 interface
 
 uses
-  Classes, SysUtils, dtm,tpa,MufasaTypes;
+  Classes, SysUtils, dtm, tpa, MufasaTypes;
 
 
 function MDTMToSDTM(Const DTM: TMDTM): TSDTM;

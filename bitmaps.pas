@@ -161,8 +161,8 @@ type
 implementation
 
 uses
-  paszlib,DCPbase64,math, client,tpa,
-  colour_conv,IOManager,mufasatypesutil,FileUtil;
+  paszlib, base64, math, client, tpa,
+  colour_conv, IOManager, mufasatypesutil, LazUTF8;
 
 // Needs more fixing. We need to either copy the memory ourself, or somehow
 // find a TRawImage feature to skip X bytes after X bytes read. (Most likely a
@@ -456,7 +456,7 @@ begin
     Point := Pointer(BmpArray[Result].FData);
     if (Data[1] = 'b') or (Data[1] = 'm') then
     begin;
-      Source := Base64DecodeStr(Copy(Data,2,Length(Data) - 1));
+      Source := DecodeStringBase64(Copy(Data,2,Length(Data) - 1));
       Destlen := Width * Height * 3;
       Setlength(Dest,DestLen);
       if uncompress(PChar(Dest),Destlen,pchar(Source), Length(Source)) = Z_OK then
@@ -776,7 +776,7 @@ begin
   begin;
     SetLength(DataStr,DestLen);
     move(bufferstring[0],dataStr[1],DestLen);
-    result := 'm' + Base64EncodeStr(datastr);
+    result := 'm' + EncodeStringBase64(datastr);
     SetLength(datastr,0);
   end;
 end;

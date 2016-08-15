@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <Name Value="mml"/>
+    <Type Value="RunTimeOnly"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="."/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <CStyleMacros Value="True"/>
+        </SyntaxOptions>
+      </Parsing>
+    </CompilerOptions>
+    <Files Count="19">
+      <Item1>
+        <Filename Value="bitmaps.pas"/>
+        <UnitName Value="bitmaps"/>
+      </Item1>
+      <Item2>
+        <Filename Value="client.pas"/>
+        <UnitName Value="Client"/>
+      </Item2>
+      <Item3>
+        <Filename Value="colour_conv.pas"/>
+        <UnitName Value="colour_conv"/>
+      </Item3>
+      <Item4>
+        <Filename Value="dtm.pas"/>
+        <UnitName Value="dtm"/>
+      </Item4>
+      <Item5>
+        <Filename Value="dtmutil.pas"/>
+        <UnitName Value="dtmutil"/>
+      </Item5>
+      <Item6>
+        <Filename Value="files.pas"/>
+        <UnitName Value="files"/>
+      </Item6>
+      <Item7>
+        <Filename Value="finder.pas"/>
+        <UnitName Value="finder"/>
+      </Item7>
+      <Item8>
+        <Filename Value="fontloader.pas"/>
+        <UnitName Value="fontloader"/>
+      </Item8>
+      <Item9>
+        <Filename Value="iomanager.pas"/>
+        <UnitName Value="IOManager"/>
+      </Item9>
+      <Item10>
+        <Filename Value="mmath.pas"/>
+        <UnitName Value="mmath"/>
+      </Item10>
+      <Item11>
+        <Filename Value="mufasabase.pas"/>
+        <UnitName Value="mufasabase"/>
+      </Item11>
+      <Item12>
+        <Filename Value="mufasatypes.pas"/>
+        <UnitName Value="MufasaTypes"/>
+      </Item12>
+      <Item13>
+        <Filename Value="mufasatypesutil.pas"/>
+        <UnitName Value="mufasatypesutil"/>
+      </Item13>
+      <Item14>
+        <Filename Value="ocr.pas"/>
+        <UnitName Value="ocr"/>
+      </Item14>
+      <Item15>
+        <Filename Value="ocrutil.pas"/>
+        <UnitName Value="ocrutil"/>
+      </Item15>
+      <Item16>
+        <Filename Value="os_linux.pas"/>
+        <UnitName Value="os_linux"/>
+      </Item16>
+      <Item17>
+        <Filename Value="os_windows.pas"/>
+        <UnitName Value="os_windows"/>
+      </Item17>
+      <Item18>
+        <Filename Value="libloader.pas"/>
+        <UnitName Value="libloader"/>
+      </Item18>
+      <Item19>
+        <Filename Value="tpa.pas"/>
+        <UnitName Value="tpa"/>
+      </Item19>
+    </Files>
+    <RequiredPkgs Count="3">
+      <Item1>
+        <PackageName Value="lazmouseandkeyinput"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCLBase"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

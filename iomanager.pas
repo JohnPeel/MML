@@ -367,15 +367,14 @@ interface
         keymouse: TTarget;
         image: TTarget;
         frozen: TTarget;
-        freezebuffer: prgb32;
-        bothsame: boolean;
         FStopping: Boolean;
 
         idxarr: array of TTarget;
 
         function GetTargetIdx(target: TTarget): integer;
         function GetIdxTarget(idx: integer): TTarget;
-      property Stopping: Boolean Read FStopping write SetState;
+      public
+        property Stopping: Boolean Read FStopping write SetState;
     end;
 
     {These wrappers are for an exported TTarget_Exported. This is done so a plugin can acces the current target and use its methodes}

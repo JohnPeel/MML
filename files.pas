@@ -78,7 +78,7 @@ type
 
 implementation
 uses
-  {$IFDEF MSWINDOWS}Windows,{$ENDIF} IniFiles,Client,FileUtil, Zipper;
+  {$IFDEF MSWINDOWS}Windows,{$ENDIF} IniFiles, Client, LazUTF8, LazFileUtils, Zipper;
 
 { GetFiles in independant of the TMFiles class }
 
@@ -113,7 +113,7 @@ begin
   Result := False;
   CurSrcDir := CleanAndExpandDirectory(Directory);
 
-  if (FindFirstUTF8(CurSrcDir+GetAllFilesMask,faAnyFile,FileInfo) = 0) then
+  if (FindFirstUTF8(CurSrcDir+AllFilesMask,faAnyFile,FileInfo) = 0) then
   begin
     repeat
       if (FileInfo.Name <> '.') and (FileInfo.Name <> '..') and (FileInfo.Name <> '') then
@@ -122,7 +122,7 @@ begin
 
         if (FileInfo.Attr and faDirectory)>0 then
         begin
-          if (not DeleteDirectory(CurFilename, False)) then
+          if (not DeleteDirectoryEx(CurFilename, False)) then
             exit();
         end else
         begin

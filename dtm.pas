@@ -80,7 +80,7 @@ implementation
 uses
     dtmutil, paszlib,
     client,
-    DCPbase64,
+    base64,
     graphics, // for TColor
     math // for max
     ;
@@ -288,7 +288,7 @@ begin
     PInteger(@result[1])^ := len;
     Move(bufferstring[0],result[1 + sizeof(integer)],Destlen);
     //We now have Size + Compressed data.. Lets Base64Encrypt it!
-    Result := 'm' + Base64EncodeStr(result);
+    Result := 'm' + EncodeStringBase64(result);
     //It now looks like m + base64encoded data! The 'm' is to indicate we used this encryption method.
   end;
   Freemem(start,len);
@@ -327,7 +327,7 @@ begin
   begin
     if ii < 9 then
       raise Exception.CreateFMT('Invalid DTM-String passed to StringToDTM: %s',[s]);
-    Source := Base64DecodeStr(copy(s,2,ii-1));
+    Source := DecodeStringBase64(copy(s,2,ii-1));
     i:= PLongint(@source[1])^; //The 4 four bytes should contain the dest len!
     if i < 1 then
       raise Exception.CreateFMT('Invalid DTM-String passed to StringToDTM: %s',[s]);

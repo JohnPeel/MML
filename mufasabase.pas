@@ -31,31 +31,6 @@ interface
 uses
   Classes, SysUtils{$ifdef MSWindows},windows{$endif};
 
-{$I Simba.inc}
-
-const
-    SimbaVersion = 1204;
-    SimbaMajor = 1200; // this should be 980 even if SimbaVersion is 981, etc
-
-    SimbaURL =     {$IFDEF WINDOWS}
-                    {$IFDEF CPUI386}
-                    'http://simba.villavu.com/bin/Windows/x86/Stable/'
-                    {$IFDEF NOTPORTABLE}+ 'SystemWide/'{$ENDIF}
-                    {$ELSE}
-                    'http://simba.villavu.com/bin/Windows/x86_64/Stable/'
-                    {$IFDEF NOTPORTABLE}+ 'SystemWide/'{$ENDIF}
-                    {$ENDIF}
-                  {$ELSE}
-                    {$IFDEF CPUI386}
-                    'http://simba.villavu.com/bin/Linux/x86/Stable/'
-                    {$IFDEF NOTPORTABLE}+ 'SystemWide/'{$ENDIF}
-                    {$ELSE}
-                    'http://simba.villavu.com/bin/Linux/x86_64/Stable/'
-                    {$IFDEF NOTPORTABLE}+ 'SystemWide/'{$ENDIF}
-                    {$ENDIF}
-                  {$ENDIF};
-    FontURL = 'http://simba.villavu.com/bin/Fonts/';
-
 procedure mDebugLn( s : string);overload;
 procedure mDebugLn( s : string; f : array of const);overload;
 procedure InitmDebug;
