@@ -30,7 +30,6 @@ unit os_linux;
 }
 
 interface
-{$IFDEF UNIX}
 
   uses
     Classes, SysUtils, mufasatypes, mufasabase, IOManager,
@@ -133,9 +132,7 @@ interface
 
   function MufasaXErrorHandler(para1:PDisplay; para2:PXErrorEvent):cint; cdecl;
 
-{$ENDIF}
 implementation
-{$IFDEF UNIX}
 
   uses GraphType, interfacebase, lcltype;
 
@@ -687,5 +684,4 @@ implementation
     raise Exception.Create('SetTargetEx: Not Implemented.');
   end;
 
-{$ENDIF}
 end.

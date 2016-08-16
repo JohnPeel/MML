@@ -15,7 +15,7 @@
         </SyntaxOptions>
       </Parsing>
     </CompilerOptions>
-    <Files Count="19">
+    <Files Count="17">
       <Item1>
         <Filename Value="bitmaps.pas"/>
         <UnitName Value="bitmaps"/>
@@ -77,21 +77,13 @@
         <UnitName Value="ocrutil"/>
       </Item15>
       <Item16>
-        <Filename Value="os_linux.pas"/>
-        <UnitName Value="os_linux"/>
-      </Item16>
-      <Item17>
-        <Filename Value="os_windows.pas"/>
-        <UnitName Value="os_windows"/>
-      </Item17>
-      <Item18>
         <Filename Value="libloader.pas"/>
         <UnitName Value="libloader"/>
-      </Item18>
-      <Item19>
+      </Item16>
+      <Item17>
         <Filename Value="tpa.pas"/>
         <UnitName Value="tpa"/>
-      </Item19>
+      </Item17>
     </Files>
     <RequiredPkgs Count="3">
       <Item1>

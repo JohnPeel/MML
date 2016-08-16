@@ -9,7 +9,7 @@ interface
 uses
   bitmaps, Client, colour_conv, dtm, dtmutil, files, finder, fontloader, 
   IOManager, mmath, mufasabase, MufasaTypes, mufasatypesutil, ocr, ocrutil, 
-  os_linux, os_windows, libloader, tpa;
+  libloader, tpa;
 
 implementation
 
